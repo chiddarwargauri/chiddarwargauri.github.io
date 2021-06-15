@@ -1,6 +1,9 @@
 <!DOCTYPE html>  
 <html>  
-<head>  
+<head> 
+    <title>Google sheets</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <style> 
 body{ 
@@ -85,12 +88,17 @@ Gender :
 <label>   
 Phone :  
 </label>  
-<input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>   
-<input type="text" name="phone" placeholder="phone no." size="10"/ required>   
-Current Address :  
+<input type="text" name="cgenderountry code" placeholder="Country Code"  value="+91" size="2"/>   
+<input type="text" name="phone" placeholder="phone no." size="10"/ required>
+   
+<BR><BR>Current Address : </BR></BR> 
 <textarea cols="80" rows="5" placeholder="Current Address" value="address" required>  
-</textarea> 
-STATE :  
+</textarea>
+
+<BR><BR><label> CITY: </label>   
+<input type="text" name="CITY" placeholder= "CITY" size="15" required /></BR></BR>
+
+<B><B>STATE :  
 </label>   
   
 <select>  
@@ -101,19 +109,78 @@ STATE :
 <option value="Haryana">Haryana</option>  
 <option value="Uttar pradesh">Haryana</option>  
 <option value="M.P">M.P</option>  
-</select>   
+</select>  </BR> </BR>
+
  <label for="email"><b>Email</b></label>  
- <input type="text" placeholder="Enter Email" name="email" required>  
-  <tr>
+ <input type="text" placeholder="Enter Email" name="email" required></BR>  
+  <BR>
+
+<tr>
      <td>UPLOAD PHOTO:</td>
-     <td><input type="file"name="photo"</td>
+     <td><input type="file"name="photo"</td></BR>
+<BR>
+
+<tr>
+     <td>HOBBISE :</td>
+
+     <td>drawing<input type="CHECKBOX"name="hobbies">     
+            
+           singing<input type="CHECKBOX"name="hobbies">
+           dancing<input type="CHECKBOX"name="hobbies">others<input type="text" name="hobbies"></td>
  
-    
+  <tr>
+     <td>QUALIFICATION :</td>
+<td>
+<table boardr="1" bgcolor="white">
+<tr>
+<th>SR.NO.</th>
+<th>Examination</th>
+<th>Board</th>
+<th>Percentage</th>
+<th>Year of passing</th>
+</tr>
+<tr>
+    <td>1</td>
+    <td>CLASS X</td>
+    <td><input type="text name=QUALIFICATION"></td>
+    <td><input type="text name=QUALIFICATION"></td>
+     <td><input type="text name=QUALIFICATION"></td>
+</tr>
+   <tr>
+    <td>2</td>
+    <td>CLASS XII</td>
+    <td><input type="text name=QUALIFICATION"></td>
+    <td><input type="text name=QUALIFICATION"></td>
+    <td><input type="text name=QUALIFICATION"></td>
+</tr>
+</table>
+ </td>
+</tr> 
+</table>
     <button type="submit" class="registerbtn">Register</button>    
 <nav>
        <ul> 
        <li><a href="index.html"><b>PERVIOUS PAGE</b></a></li>
        </nav>
-</form>  
+</form>
+   </div>
+<div class="col-sm">
+  </div>
+  </div>
+</div>
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx5Yg3hOQCWr1onbEtpQm9vFjxgOs9IQd2plV0OxMKEiiW4omiZpEvb7NuHHj9fXSM2nA/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>  
 </html>  
